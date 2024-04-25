@@ -3,11 +3,11 @@ public class Animal {
     
     public static int quantidadeAnimais;
     public static int quantidadePretos;
-    private int id;
-    private String nome;
-    private String sexo;
-    private String raca;
-    private String cor;
+    protected int id;
+    protected String nome;
+    protected String sexo;
+    protected String raca;
+    protected String cor;
 
     // public Animal() {
     //     quantidadeAnimais++;
