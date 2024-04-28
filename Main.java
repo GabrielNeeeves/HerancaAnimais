@@ -14,6 +14,8 @@ public class Main {
         
         Scanner scanner = new Scanner(System.in);
 
+        String nomesPretosM = "", nomesPretosA = "";
+        
         boolean sair = false;
         while(!sair) {
             System.out.println("1. Cadastrar Mamifero");
@@ -38,6 +40,7 @@ public class Main {
                     String sexoMamifero = scanner.next();
                     novoMamifero.setSexo(sexoMamifero);
 
+                    //CONTABILIZA O SEXO MACHO PARA 'MAMIFEROS'
                     if(sexoMamifero.equalsIgnoreCase("m"))
                         Mamifero.quantidadeMamiferoMacho++;
 
@@ -49,7 +52,8 @@ public class Main {
                     String corMamifero = scanner.next();
                     novoMamifero.setCor(corMamifero);
 
-                    if(corMamifero.equalsIgnoreCase("preto"))
+                    //CONTABILIZA COR PRETO(A) PARA 'MAMIFEROS'
+                    if(corMamifero.equalsIgnoreCase("preto") || corMamifero.equalsIgnoreCase("preta"))
                         Animal.quantidadePretos++;
 
                     System.out.println("Quantidade de patas do Mamifero: ");
@@ -60,8 +64,11 @@ public class Main {
                     float pesoMamifero = scanner.nextFloat();
                     novoMamifero.setPeso(pesoMamifero);
 
+                    nomesPretosM += Animal.nomeAnimaisPretos(novoMamifero) + " - ";
+
                     System.out.println("Novo Mamifero criado!");
-                    Animal animalMamifero = new Animal();
+
+                    // Animal animalMamifero = new Animal();
                     
                     break;
             
@@ -81,6 +88,7 @@ public class Main {
                     String sexo = scanner.next();
                     novaAve.setSexo(sexo);
 
+                    //CONTABILIZA O SEXO FÊMEA PARA 'AVES'
                     if(sexo.equalsIgnoreCase("f"))
                         Aves.quantidadeAvesFemeas++;
 
@@ -92,14 +100,18 @@ public class Main {
                     String cor = scanner.next();
                     novaAve.setCor(cor);
 
-                    if(cor.equalsIgnoreCase("preto"))
+                    //CONTABILIZA COR PRETO(A) PARA 'AVES'
+                    if(cor.equalsIgnoreCase("preto") || cor.equalsIgnoreCase("preta"))
                         Animal.quantidadePretos++;
 
                     System.out.println("Tipo de pena da Ave: ");
                     String tipoPena = scanner.next();
                     novaAve.setTipoPenas(tipoPena);
 
-                    Animal animalAve = new Animal();
+                    //CHAMA O MÉTODO PARA PEGAR O NOME DO ANIMAL (SE FOR PRETO(A))
+                    nomesPretosA += Animal.nomeAnimaisPretos(novaAve) + " - ";
+                    
+                    // Animal animalAve = new Animal();
 
                     System.out.println("Ave criada!");
                     break;
@@ -118,6 +130,7 @@ public class Main {
         System.out.println("Aves Femeas: "+Aves.quantidadeAvesFemeas);
         System.out.println("Total de Animais: "+Animal.quantidadeAnimais);
         System.out.println("Quantidade de Animais pretos: "+Animal.quantidadePretos);
+        System.out.printf("\nO nomes dos Animais pretos são: %s %s", nomesPretosM, nomesPretosA);
         
     }
 }

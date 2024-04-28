@@ -13,6 +13,14 @@ public class Animal {
     //     quantidadeAnimais++;
     // }
 
+    public static String nomeAnimaisPretos(Animal subclass) {
+        if(subclass.cor.equalsIgnoreCase("preto") || subclass.cor.equalsIgnoreCase("preta")) {
+            return subclass.nome;
+        } else {
+            return "";
+        }
+    }
+
     public int getId() {
         return id;
     }
